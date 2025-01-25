@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aroon Bank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html{
+            overflow-x:hidden;
+        }
+        .collapse{
+            justify-content: right;       
+        }
+        h1 {
+            margin: 2rem;
+        }
+        .form-group {
+            margin-bottom: 30px; 
+        }
+        button {
+            margin-top: 20px;
+        }
+        .container {
+            margin: .5rem;
+            padding:2rem;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 1rem 0;
+        }
+        @media (max-width: 980px){
+
+            .navbar-toggler{
+                display:none;
+            }
+
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">AroonBank</a>
+            <button class="navbar-toggler" href="home" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation" href="home"   >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"> 
+                        <a class="nav-link active" aria-current="page" href="account">Back</a>
+                    </li>
+                </ul>
+                
+            </div>
+            <button class="d-lg-none" id=""><a class="" aria-current="page" href="account">Back</a></button>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Withdraw Money from Your Account</h1>
+        <form action="/withdraw-money" method="POST">
+            <div class="form-group">
+                <label for="accountNumber">Account Number:</label>
+                <input type="text" class="form-control" id="accountNumber" name="accountNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount to Withdraw:</label>
+                <input type="number" class="form-control" id="amount" name="amount" required>
+            </div>
+            <button type="submit" class="btn btn-danger btn-block">Withdraw Money</button>
+        </form>
+    </div>
+
+
+
+    <footer class="footer text-center">
+        <div class="container">
+            <span>&copy; 2024 AroonBank. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> <!-- Added Bootstrap JS -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aroon Bank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html{
+            overflow-x:hidden;
+        }
+
+        h1 {
+            margin: 1rem;
+        }
+
+        .container {
+                margin: 5rem;
+                padding: 2rem;
+                
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        .account-form {
+            background-color: #fff;
+            padding: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .account-form h1 {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .btn{
+            position:relative;
+            left:50%;
+            transform:translateX(-50%);
+        }
+        @media (max-width:980px){
+            .container{
+                margin:.5rem;
+            }
+            .navbar-toggler{
+                display:none;
+            }
+            .btn{
+                color: #fff;
+                text-decoration: none;
+            }
+            .account-form {
+                padding: 1.5rem;
+                margin:0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">AroonBank</a>
+            <button class="navbar-toggler" href="home" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation" href="home"   >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"> 
+                        <a class="nav-link active" aria-current="page" href="home">Back</a>
+                    </li>
+                </ul>
+                
+            </div>
+            <button class="d-lg-none" id=""><a class="" aria-current="page" href="home">Back</a></button>
+        </div>
+
+    </nav>
+
+    <main class="container" style="margin-top: 5rem;"> <!-- Added margin-top to avoid overlap with navbar -->
+        <section class="account-form">
+            <h1>Create Bank Account</h1>
+            <form action="">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label>First Name:</label>
+                    <input type="text" name="name" class="form-control">
+                </div>
+            
+                <div class="mb-3">
+                    <label for="mobile">Mobile:</label>
+                    <input type="text" name="mobile" class="form-control" required>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" class="form-control" required>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="balance">Initial Deposit:</label>
+                    <input type="number"  name="balance" class="form-control" required>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="accounttype">Account Type:</label>
+                    <select id="accounttype" name="accounttype" class="form-control" required>
+                        <option value="savings">Savings</option>
+                        <option value="current">Current</option>
+                        <option value="business">Business</option>
+                    </select>
+                </div>
+            
+                <button class="btn btn-primary" type="submit" value="Submit">Create Account</button>
+            </form>
+            
+
+            
+        </section>
+    </main>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <span>&copy; 2024 AroonBank. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Services - Aroon Bank</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        html{
+            overflow-x:hidden;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .collapse{
+            justify-content: right;       
+        }
+
+        .account-info {
+            margin: 1rem 0;
+        }
+
+        .investment-section {
+            padding: 2rem 0;
+        }
+
+        .stock-item {
+            padding: 1rem;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            background-color: white;
+            margin-bottom: 1rem;
+        }
+
+        .btn{
+            margin:1rem;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .holdings-table {
+            margin: 2rem 0;
+        }
+
+        header{
+            padding-top:1rem;
+            padding-left:1rem;
+            margin-right:1rem;
+            margin-bottom:1rem;
+        }
+        .account-details{
+            background-color:lightgrey;
+            padding:1rem;
+            border-radius:1rem;
+        }
+        h2{
+            text-align:center;
+            padding-top:5rem;
+        }
+
+        /* Custom styles for responsive text */
+        @media (max-width: 980px){
+
+            .navbar-toggler{
+                display:none;
+            }
+
+            
+        }
+        @media (max-width: 576px) {
+            h2 {
+                font-size: 1.5rem; /* Smaller font size for small screens */
+            }
+            h5 {
+                font-size: 0.9rem; /* Smaller font size for stock items */
+            }
+            .btn{
+                font-size: .8rem; 
+                padding:.4rem;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">AroonBank</a>
+            <button class="navbar-toggler" href="home" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation" href="home"   >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"> 
+                        <a class="nav-link active" aria-current="page" href="home">Back</a>
+                    </li>
+                </ul>
+                
+            </div>
+            <button class="d-lg-none" id=""><a class="" aria-current="page" href="home">Back</a></button>
+        </div>
+    </nav>
+
+    <h2>Investment Services</h2>
+
+
+    <header>
+        {% for account_detail in account_details %}
+        <div class="account-details">
+            
+            <div class="details">
+                <h4>Account Name: {{account_detail.holder_name}}</h4>
+                <h6>Account Number: {{account_detail.account_number}}</h6>
+                <p>Amount: {{account_detail.account_balance}}</p>
+            </div>
+            {% endfor %}
+            
+            <div class="d-flex justify-content-between">
+                <a href="add" class="btn btn-success">Add Funds</a>
+                <a href="withdraw" class="btn btn-danger">Withdraw Funds</a>
+            </div>
+        </div>
+    </header>
+
+    <h2 class="text-center">My Holdings</h2>
+<table class="table tble">
+    <thead>
+        <tr>
+            <th>Stock Name</th>
+            <th>Quantity</th>
+            <th>Purchase Price</th>
+            <th>Total Price</th>
+            <th>Purchase Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% comment %} {% for holding in holdings %} {% endcomment %}
+        <tr>
+            <td>Coal India</td>
+            <td>400</td>
+            <td>420</td>
+            <td>1,68,000</td>
+            <td>2025</td>
+        </tr>
+        {% comment %} {% endfor %} {% endcomment %}
+    </tbody>
+</table>
+
+    <h2 class="text-center">Stocks</h2>
+    <div class="row">
+        {% for sock in stk %}
+        <div class="col-md-12">
+            
+            <div class="stock-item">
+                <h5>{{sock.name}} - {{sock.price}}</h5>
+                <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Qty" min="1" style="width: 60px;">
+                    <div class="input-group-append">
+                        <button class="btn btn-success btn-sm">Buy</button>
+                        <button class="btn btn-danger btn-sm">Sell</button>
+                    </div>
+                </div>
+            
+            </div>
+            
+        </div>
+        {% endfor %}
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Aroon Bank. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
